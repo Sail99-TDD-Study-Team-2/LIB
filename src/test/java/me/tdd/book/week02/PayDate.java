@@ -4,14 +4,24 @@ import java.time.LocalDate;
 
 public class PayDate {
 
+    private LocalDate payFirstDate;
     private LocalDate payDate;
     private int payAmount;
 
     public PayDate() {}
 
-    public PayDate(LocalDate payDate, int payAmount) {
+    public PayDate(LocalDate payFirstDate, LocalDate payDate, int payAmount) {
+        this.payFirstDate = payFirstDate;
         this.payDate = payDate;
         this.payAmount = payAmount;
+    }
+
+    public LocalDate getPayFirstDate() {
+        return payFirstDate;
+    }
+
+    public void setPayFirstDate(LocalDate payFirstDate) {
+        this.payFirstDate = payFirstDate;
     }
 
     public LocalDate getPayDate() {
@@ -48,6 +58,11 @@ public class PayDate {
 
         public Builder payAmount(int payAmount) {
             this.payDate.setPayAmount(payAmount);
+            return this;
+        }
+
+        public Builder payFirstDate(LocalDate payFirstDate) {
+            this.payDate.setPayFirstDate(payFirstDate);
             return this;
         }
     }

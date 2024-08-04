@@ -1,6 +1,7 @@
 package me.tdd.book.week02;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -17,7 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ExpiryDateCalculatorTest {
 
     @Test
-    void 만원은_한_달_만료() {
+    @DisplayName("10,000원은 한 달 뒤에 만료 케이스")
+    void test1() {
         int paidAmount = 10_000;
 
         assertExpiryDate(
@@ -62,7 +64,8 @@ public class ExpiryDateCalculatorTest {
     }
 
     @Test
-    void 만료일_불일치() {
+    @DisplayName("만료일이 불일치 하는 케이스")
+    void test2() {
         assertExpiryDate(
                 PayDate.builder()
                         .payDate(LocalDate.of(2019,1,31))
@@ -70,6 +73,76 @@ public class ExpiryDateCalculatorTest {
                         .build(),
                 LocalDate.of(2019,2,28)
         );
+    }
+
+    @Test
+    @DisplayName("첫 납부일과 만료일 일자가 다를 때 만원을 납부한 케이스")
+    void test3() {
+        PayDate payDate = PayDate.builder()
+                                 .payFirstDate(LocalDate.of(2019,1,31))
+                                 .payDate(LocalDate.of(2019,2,28))
+                                 .payAmount(10_000)
+                                 .build();
+
+        PayDate payDate1 = PayDate.builder()
+                                  .payFirstDate(LocalDate.of(2019,1,30))
+                                  .payDate(LocalDate.of(2019,2,28))
+                                  .payAmount(10_000)
+                                  .build();
+
+        assertExpiryDate(payDate, LocalDate.of(2019,3,31));
+        assertExpiryDate(payDate1, LocalDate.of(2019,3,30));
+    }
+
+    @Test
+    @DisplayName("20,000원 이상 납부 케이스")
+    void test4() {
+        assertExpiryDate(
+                PayDate.builder()
+                       .payDate(LocalDate.of(2019,3,1))
+                       .payAmount(20_000)
+                       .build(),
+                LocalDate.of(2019,5,1)
+        );
+
+        assertExpiryDate(
+                PayDate.builder()
+                       .payDate(LocalDate.of(2019,3,1))
+                       .payAmount(30_000)
+                       .build(),
+                LocalDate.of(2019,6,1)
+        );
+    }
+
+    @Test
+    @DisplayName("첫 납부일과 만료일 일자가 다를 때 20,000원 이상 납부 케이스")
+    void test5() {
+        assertExpiryDate(
+                PayDate.builder()
+                       .payFirstDate(LocalDate.of(2019,1,31))
+                       .payDate(LocalDate.of(2019,2,28))
+                       .payAmount(20_000)
+                       .build(),
+                LocalDate.of(2019,4,30)
+        );
+
+        assertExpiryDate(
+                PayDate.builder()
+                       .payFirstDate(LocalDate.of(2019,3,31))
+                       .payDate(LocalDate.of(2019,4,30))
+                       .payAmount(30_000)
+                       .build(),
+                LocalDate.of(2019,7,31)
+        );
+
+        /*assertExpiryDate(
+                PayDate.builder()
+                       .payFirstDate(LocalDate.of(2019,2,28))
+                       .payDate(LocalDate.of(2019,3,31))
+                       .payAmount(40_000)
+                       .build(),
+                LocalDate.of(2019,7,31)
+        );*/
     }
 
     private void assertExpiryDate(PayDate payDate, LocalDate expectedDate) {
