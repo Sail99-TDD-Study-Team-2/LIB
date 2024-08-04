@@ -1,4 +1,4 @@
-package me.tdd.book.password;
+package me.tdd.book.week01.password;
 
 public class PasswordStrengthMeter {
 

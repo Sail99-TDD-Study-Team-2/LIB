@@ -1,4 +1,4 @@
-package me.tdd.book.calcurator;
+package me.tdd.book.week01.calcurator;
 
 import org.junit.jupiter.api.Test;
 
