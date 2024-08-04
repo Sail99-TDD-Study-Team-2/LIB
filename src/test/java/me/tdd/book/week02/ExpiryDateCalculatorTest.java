@@ -21,39 +21,60 @@ public class ExpiryDateCalculatorTest {
         int paidAmount = 10_000;
 
         assertExpiryDate(
-                LocalDate.of(2024, 7, 1),
-                paidAmount,
+                PayDate.builder()
+                       .payDate(LocalDate.of(2024, 7, 1))
+                       .payAmount(paidAmount)
+                       .build(),
                 LocalDate.of(2024, 8, 1)
         );
 
         assertExpiryDate(
-                LocalDate.of(2024, 5, 5),
-                paidAmount,
+                PayDate.builder()
+                       .payDate(LocalDate.of(2024, 5, 5))
+                       .payAmount(paidAmount)
+                       .build(),
                 LocalDate.of(2024, 6, 5)
         );
 
         assertExpiryDate(
-                LocalDate.of(2023,1,31),
-                paidAmount,
+                PayDate.builder()
+                       .payDate(LocalDate.of(2023,1,31))
+                       .payAmount(paidAmount)
+                       .build(),
                 LocalDate.of(2023,2,28)
         );
 
         assertExpiryDate(
-                LocalDate.of(2023,5,31),
-                paidAmount,
+                PayDate.builder()
+                       .payDate(LocalDate.of(2023,5,31))
+                       .payAmount(paidAmount)
+                       .build(),
                 LocalDate.of(2023,6,30)
         );
 
         assertExpiryDate(
-                LocalDate.of(2024,1,31),
-                paidAmount,
+                PayDate.builder()
+                       .payDate(LocalDate.of(2024,1,31))
+                       .payAmount(paidAmount)
+                       .build(),
                 LocalDate.of(2024,2,29)
         );
     }
 
-    private void assertExpiryDate(LocalDate expiryDate, int amount, LocalDate expectedDate) {
+    @Test
+    void 만료일_불일치() {
+        assertExpiryDate(
+                PayDate.builder()
+                        .payDate(LocalDate.of(2019,1,31))
+                        .payAmount(10_000)
+                        .build(),
+                LocalDate.of(2019,2,28)
+        );
+    }
+
+    private void assertExpiryDate(PayDate payDate, LocalDate expectedDate) {
         ExpiryDateCalculator cal = new ExpiryDateCalculator();
-        LocalDate calcDate = cal.calcExpiryDate(expiryDate, amount);
+        LocalDate calcDate = cal.calcExpiryDate(payDate);
 
         assertEquals(expectedDate, calcDate);
     }
