@@ -8,7 +8,7 @@ public class ExpiryDateCalculator {
     public static final int AMOUNT_PER_A_MONTH = 10_000;
 
     public LocalDate calcExpiryDate(PayDate payDate) {
-        int addedMonth = payDate.getPayAmount() / AMOUNT_PER_A_MONTH;
+        int addedMonth = payDate.getPayAmount() == 100_000 ? 12 : payDate.getPayAmount() / AMOUNT_PER_A_MONTH;
 
         if(payDate.getPayFirstDate() != null) {
             return this.expiryDateUsingFirstPayDate(payDate, addedMonth);

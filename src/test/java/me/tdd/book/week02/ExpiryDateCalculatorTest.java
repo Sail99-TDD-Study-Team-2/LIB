@@ -145,6 +145,18 @@ public class ExpiryDateCalculatorTest {
         );*/
     }
 
+    @Test
+    @DisplayName("10개월 요금 납부시 1년 요금제 제공")
+    public void test6() {
+        assertExpiryDate(
+                PayDate.builder()
+                        .payDate(LocalDate.of(2019,1,28))
+                        .payAmount(100_000)
+                        .build(),
+                LocalDate.of(2020,1,28)
+        );
+    }
+
     private void assertExpiryDate(PayDate payDate, LocalDate expectedDate) {
         ExpiryDateCalculator cal = new ExpiryDateCalculator();
         LocalDate calcDate = cal.calcExpiryDate(payDate);
