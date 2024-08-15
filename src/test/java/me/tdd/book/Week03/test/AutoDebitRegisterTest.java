@@ -1,6 +1,7 @@
 package me.tdd.book.Week03.test;
 
 import me.tdd.book.Week03.*;
+import me.tdd.book.Week03.stub.MemoryAutoDebitInfoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ public class AutoDebitRegisterTest {
     @BeforeEach
     void setUp() {
         CardNumberValidator validator = new CardNumberValidator();
-        AutoDebitInfoRepository repo = new JpaAutoDebitInfoRepository();
+        AutoDebitInfoRepository repo = new MemoryAutoDebitInfoRepository();
 
         register = new AutoDebitRegister(validator, repo);
     }
