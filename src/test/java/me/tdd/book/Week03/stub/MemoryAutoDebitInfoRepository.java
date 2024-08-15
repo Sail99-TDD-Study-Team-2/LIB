@@ -19,4 +19,8 @@ public class MemoryAutoDebitInfoRepository implements AutoDebitInfoRepository {
     public AutoDebitInfo findOne(String userId) {
         return infos.get(userId);
     }
+
+    public void clear() {
+        infos.clear();
+    }
 }
