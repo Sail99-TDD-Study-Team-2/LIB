@@ -1,12 +1,12 @@
-package me.tdd.book.Week03.test;
+package me.tdd.book.Week03.ch06.test;
 
-import me.tdd.book.Week03.*;
-import me.tdd.book.Week03.stub.MemoryAutoDebitInfoRepository;
+import me.tdd.book.Week03.ch06.*;
+import me.tdd.book.Week03.ch06.stub.MemoryAutoDebitInfoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static me.tdd.book.Week03.CardValidity.THEFT;
-import static me.tdd.book.Week03.CardValidity.VALID;
+import static me.tdd.book.Week03.ch06.CardValidity.THEFT;
+import static me.tdd.book.Week03.ch06.CardValidity.VALID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AutoDebitRegisterTest {

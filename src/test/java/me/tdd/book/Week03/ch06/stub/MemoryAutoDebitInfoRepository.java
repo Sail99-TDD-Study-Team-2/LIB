@@ -1,7 +1,7 @@
-package me.tdd.book.Week03.stub;
+package me.tdd.book.Week03.ch06.stub;
 
-import me.tdd.book.Week03.AutoDebitInfo;
-import me.tdd.book.Week03.AutoDebitInfoRepository;
+import me.tdd.book.Week03.ch06.AutoDebitInfo;
+import me.tdd.book.Week03.ch06.AutoDebitInfoRepository;
 
 import java.util.HashMap;
 import java.util.Map;

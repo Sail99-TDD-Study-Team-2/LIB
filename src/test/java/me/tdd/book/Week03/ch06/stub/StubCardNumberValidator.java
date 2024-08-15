@@ -1,7 +1,7 @@
-package me.tdd.book.Week03.stub;
+package me.tdd.book.Week03.ch06.stub;
 
-import me.tdd.book.Week03.CardNumberValidator;
-import me.tdd.book.Week03.CardValidity;
+import me.tdd.book.Week03.ch06.CardNumberValidator;
+import me.tdd.book.Week03.ch06.CardValidity;
 
 public class StubCardNumberValidator extends CardNumberValidator {
 

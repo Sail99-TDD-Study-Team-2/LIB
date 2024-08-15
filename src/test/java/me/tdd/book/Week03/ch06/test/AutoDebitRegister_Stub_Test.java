@@ -1,16 +1,16 @@
-package me.tdd.book.Week03.test;
+package me.tdd.book.Week03.ch06.test;
 
-import me.tdd.book.Week03.AutoDebitRegister;
-import me.tdd.book.Week03.AutoDebitReq;
-import me.tdd.book.Week03.RegisterResult;
-import me.tdd.book.Week03.stub.MemoryAutoDebitInfoRepository;
-import me.tdd.book.Week03.stub.StubCardNumberValidator;
+import me.tdd.book.Week03.ch06.AutoDebitRegister;
+import me.tdd.book.Week03.ch06.AutoDebitReq;
+import me.tdd.book.Week03.ch06.RegisterResult;
+import me.tdd.book.Week03.ch06.stub.MemoryAutoDebitInfoRepository;
+import me.tdd.book.Week03.ch06.stub.StubCardNumberValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static me.tdd.book.Week03.CardValidity.INVALID;
-import static me.tdd.book.Week03.CardValidity.THEFT;
+import static me.tdd.book.Week03.ch06.CardValidity.INVALID;
+import static me.tdd.book.Week03.ch06.CardValidity.THEFT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("Stub 을 이용한 카드 유효성 검사")

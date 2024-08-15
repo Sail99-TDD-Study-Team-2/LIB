@@ -1,17 +1,17 @@
-package me.tdd.book.week01.password;
+package me.tdd.book.week01.ch02.password;
 
 public class PasswordStrengthMeter {
 
-    public me.tdd.book.week01.password.PwSecurityLevel meter(String pw) {
+    public me.tdd.book.week01.ch02.password.PwSecurityLevel meter(String pw) {
         if (isEmpty(pw)) {
-            return me.tdd.book.week01.password.PwSecurityLevel.INVALID;
+            return me.tdd.book.week01.ch02.password.PwSecurityLevel.INVALID;
         }
 
         switch(getMetCriteriaCnt(pw)) {
             case 2:
-                return me.tdd.book.week01.password.PwSecurityLevel.MODERATE;
+                return me.tdd.book.week01.ch02.password.PwSecurityLevel.MODERATE;
             case 3:
-                return me.tdd.book.week01.password.PwSecurityLevel.STRONG;
+                return me.tdd.book.week01.ch02.password.PwSecurityLevel.STRONG;
             default:
                 return PwSecurityLevel.WEEK;
         }

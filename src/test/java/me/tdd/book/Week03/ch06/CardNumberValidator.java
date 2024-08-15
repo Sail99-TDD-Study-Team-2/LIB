@@ -1,4 +1,4 @@
-package me.tdd.book.Week03;
+package me.tdd.book.Week03.ch06;
 
 import java.io.IOException;
 import java.net.URI;
