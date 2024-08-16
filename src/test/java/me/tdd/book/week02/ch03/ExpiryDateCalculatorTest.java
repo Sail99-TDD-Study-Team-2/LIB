@@ -1,6 +1,5 @@
-package me.tdd.book.week02;
+package me.tdd.book.week02.ch03;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
