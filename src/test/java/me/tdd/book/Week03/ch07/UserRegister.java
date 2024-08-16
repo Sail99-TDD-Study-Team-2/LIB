@@ -4,15 +4,14 @@ import me.tdd.book.Week03.ch07.entity.User;
 import me.tdd.book.Week03.ch07.exception.DupIdException;
 import me.tdd.book.Week03.ch07.exception.WeakPasswordException;
 import me.tdd.book.Week03.ch07.repository.MemoryUserRepository;
-import me.tdd.book.Week03.ch07.spy.SpyEmailNotifier;
 
 public class UserRegister {
 
     private WeakPasswordChecker passwordChecker;
     private MemoryUserRepository userRepository;
-    private SpyEmailNotifier spyEmailNotifier;
+    private EmailNotifier spyEmailNotifier;
 
-    public UserRegister(WeakPasswordChecker passwordChecker, MemoryUserRepository userRepository, SpyEmailNotifier spyEmailNotifier) {
+    public UserRegister(WeakPasswordChecker passwordChecker, MemoryUserRepository userRepository, EmailNotifier spyEmailNotifier) {
         this.passwordChecker = passwordChecker;
         this.userRepository = userRepository;
         this.spyEmailNotifier = spyEmailNotifier;
