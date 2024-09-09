@@ -12,4 +12,8 @@ public enum ConsoleMsg {
     ConsoleMsg(String msg) {
         this.msg = msg;
     }
+
+    public void print() {
+        System.out.print(msg);
+    }
 }

@@ -1,7 +1,6 @@
 package me.tdd.baseball.domain;
 
 import me.tdd.baseball.exception.BaseballException;
-import me.tdd.baseball.validator.InputValidator;
 
 import java.util.Arrays;
 import java.util.List;
