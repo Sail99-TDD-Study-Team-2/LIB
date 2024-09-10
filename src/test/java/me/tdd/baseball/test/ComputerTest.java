@@ -1,7 +1,7 @@
 package me.tdd.baseball.test;
 
 import me.tdd.baseball.RandomNumber;
-import me.tdd.baseball.StubRandomNumber;
+import me.tdd.baseball.stub.StubRandomNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

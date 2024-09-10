@@ -1,6 +1,6 @@
 package me.tdd.baseball.test;
 
-import me.tdd.baseball.StubUserInput;
+import me.tdd.baseball.stub.StubUserInput;
 import me.tdd.baseball.UserInput;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
