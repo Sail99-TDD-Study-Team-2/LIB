@@ -1,5 +1,7 @@
 package me.tdd.baseball.domain;
 
+import me.tdd.baseball.enums.ConsoleMsg;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,6 +24,10 @@ public class Computer {
 
     public static Computer of() {
         return new Computer();
+    }
+
+    public void getRequest() {
+        ConsoleMsg.REQUEST.print();
     }
 
     public List<Integer> getAnswerNumbers() {

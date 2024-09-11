@@ -19,19 +19,14 @@ public class BaseballGame {
     public void playBall() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        do {
-            try {
-                // ConsoleMsg.REQUEST
-                String command = br.readLine();
+        try {
+            com.getRequest();
+            continueGame(br.readLine());
 
-                continueGame(command);
+            User user = User.of(br.readLine(), this.com.getAnswerNumbers());
 
-                User user = User.of(br.readLine(), this.com.getAnswerNumbers());
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        } while(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

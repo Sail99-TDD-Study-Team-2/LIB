@@ -1,4 +1,4 @@
-package me.tdd.baseball.domain;
+package me.tdd.baseball;
 
 import me.tdd.baseball.exception.BaseballException;
 
@@ -24,9 +24,11 @@ public class User {
             throw BaseballException.of(ILLEGAL_ARGUMENT_NUMBER.getMsg());
         }
 
+        long strikeCnt = getStrikeCnt(nums, answer);
+
         return new User(
-                getBallCnt(nums, answer),
-                getStrikeCnt(nums, answer)
+                getBallCnt(nums, answer) - strikeCnt,
+                strikeCnt
         );
     }
 
@@ -51,5 +53,13 @@ public class User {
         }
 
         return matchCnt;
+    }
+
+    public long getBallCnt() {
+        return ballCnt;
+    }
+
+    public long getStrikeCnt() {
+        return strikeCnt;
     }
 }
